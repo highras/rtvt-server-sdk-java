@@ -60,7 +60,7 @@ public class Main {
             connectStatus.set(false);
 
             long ts = System.currentTimeMillis() / 1000;
-            String realToken = ApiSecurityExample.genHMACToken(91700007, ts, "MGIyZThkM2QtNjU4Yy00NjE1LWE0ODEtYjZmNmM3MWNmYzY4");
+            String realToken = ApiSecurityExample.genHMACToken(pid, ts, secretKey);
             while (true){
                 RTVTStruct.RTVTAnswer rtvtAnswer = rtvtClient.login(realToken,ts);
                 if (rtvtAnswer.errorCode == 0) {

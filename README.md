@@ -39,11 +39,14 @@ Java 8
 ### How to startTranslate
 
 * startTranslate
-
-             rtvtClient.login(realToken, ts, new RTVTUserInterface.IRTVTEmptyCallback()
-             rtvtClient.startTranslate(String srcLanguage, String destLanguage, List<String> srcAltLanguage, boolean asrResult, boolean tempResult, boolean transResult, boolean ttsResult, String ttsSpeaker, String userId, RTVTStruct.Codec codec, final RTVTUserInterface.IRTVTCallback<VoiceStream> callback)
-             rtvtClient.sendVoice(long streamId, long seq, byte[] voicedata, long voiceDataTs, RTVTUserInterface.IRTVTEmptyCallback callback)
-             rtvtClient.stopTranslate(streamId)
+~~~
+  long ts = System.currentTimeMillis() / 1000;
+  String realToken = ApiSecurityExample.genHMACToken(pid, ts, secretKey);
+  rtvtClient.login(realToken, ts, new RTVTUserInterface.IRTVTEmptyCallback()
+  rtvtClient.startTranslate(String srcLanguage, String destLanguage, List<String> srcAltLanguage, boolean asrResult, boolean tempResult, boolean transResult, boolean ttsResult, String ttsSpeaker, String userId, RTVTStruct.Codec codec, final RTVTUserInterface.IRTVTCallback<VoiceStream> callback)
+  rtvtClient.sendVoice(long streamId, long seq, byte[] voicedata, long voiceDataTs, RTVTUserInterface.IRTVTEmptyCallback callback)
+  rtvtClient.stopTranslate(streamId)
+~~~
 
 
 
